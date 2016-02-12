@@ -13,6 +13,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.libs.jline.internal.Nullable;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -25,17 +26,17 @@ import java.util.List;
 import java.util.Map;
 
 public class Bossy {
-    private static List<JavaPlugin> plugins = new ArrayList<>();
+    private static List<Plugin> plugins = new ArrayList<>();
 
-    private final JavaPlugin plugin;
+    private final Plugin plugin;
     private final Map<Player,BossBar> bossBars;
     private final BukkitRunnable respawnTask;
 
-    public Bossy(@Nonnull JavaPlugin plugin) {
+    public Bossy(@Nonnull Plugin plugin) {
         this(plugin, 5);
     }
 
-    public Bossy(@Nonnull JavaPlugin plugin, int frequency) throws IllegalArgumentException {
+    public Bossy(@Nonnull Plugin plugin, int frequency) throws IllegalArgumentException {
         if (plugins.contains(plugin))
             throw new IllegalArgumentException("Bossy already registered with " + plugin.getName());
         plugins.add(plugin);
