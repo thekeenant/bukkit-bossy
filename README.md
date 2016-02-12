@@ -1,8 +1,17 @@
 # Bossy
 
+Bossy is an easy-to-use and awesome developer- and player-friendly Bukkit Boss Bar API (wow that's a mouthful).
+
+**Dependencies:**
+* [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
+* Any derivative of Bukkit 1.8 ([PaperSpigot!](https://tcpr.ca/downloads/paperspigot))
+
+
+**Demonstration:**
+
 ![http://i.imgur.com/KTH0af4.gif](http://i.imgur.com/KTH0af4.gif)
 
-**Bossy Usage:** It's as easy as this!
+**Usage:** It's as easy as this!
 
 ```
 Bossy bossy = new Bossy(plugin);
