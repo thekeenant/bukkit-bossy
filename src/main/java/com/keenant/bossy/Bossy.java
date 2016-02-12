@@ -8,6 +8,7 @@ import com.comphenix.protocol.wrappers.WrappedDataWatcher;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.libs.jline.internal.Nullable;
@@ -15,17 +16,30 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Bossy {
+    private static List<JavaPlugin> plugins = new ArrayList<>();
+
     private final JavaPlugin plugin;
     private final Map<Player,BossBar> bossBars;
     private final BukkitRunnable respawnTask;
 
-    public Bossy(JavaPlugin plugin, int frequency) {
+    public Bossy(@Nonnull JavaPlugin plugin) {
+        this(plugin, 5);
+    }
+
+    public Bossy(@Nonnull JavaPlugin plugin, int frequency) throws IllegalArgumentException {
+        if (plugins.contains(plugin))
+            throw new IllegalArgumentException("Bossy already registered with " + plugin.getName());
+        plugins.add(plugin);
+
         this.plugin = plugin;
         this.bossBars = new HashMap<>();
         this.respawnTask = new BukkitRunnable() {
