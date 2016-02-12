@@ -10,7 +10,14 @@ public class BossyAPI {
 
     static {
         plugin = Bukkit.getPluginManager().getPlugins()[0];
-        instance = new Bossy(plugin);
+    }
+
+    /**
+     * Initialize the static API with a specific plugin.
+     * @param newPlugin
+     */
+    public static void init(Plugin newPlugin) {
+        plugin = newPlugin;
     }
 
     public static Plugin getPlugin() {
@@ -18,26 +25,28 @@ public class BossyAPI {
     }
 
     public static Bossy getInstance() {
+        if (instance == null)
+            instance = new Bossy(plugin);
         return instance;
     }
 
     public static void show(Player player) {
-        instance.show(player);
+        getInstance().show(player);
     }
 
     public void hide(Player player) {
-        instance.hide(player);
+        getInstance().hide(player);
     }
 
     public void setText(Player player, String text) {
-        instance.setText(player, text);
+        getInstance().setText(player, text);
     }
 
     public void setPercent(Player player, float percent) {
-        instance.setPercent(player, percent);
+        getInstance().setPercent(player, percent);
     }
 
     public void set(Player player, String text, float percent) {
-        instance.set(player, text, percent);
+        getInstance().set(player, text, percent);
     }
 }
