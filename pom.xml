@@ -8,13 +8,6 @@
     <artifactId>bossy</artifactId>
     <version>1.0</version>
 
-    <!-- Version Control -->
-    <scm>
-        <connection>scm:git://github.com/Avicus/Atlas.git</connection>
-        <developerConnection>scm:git:ssh://github.com/Avicus/Atlas.git</developerConnection>
-        <url>https://github.com/Avicus/Atlas</url>
-    </scm>
-
     <!-- Deployment -->
     <distributionManagement>
         <repository>
