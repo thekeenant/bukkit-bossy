@@ -8,25 +8,7 @@
     <artifactId>bossy</artifactId>
     <version>1.0</version>
 
-    <!-- Deployment -->
-    <distributionManagement>
-        <repository>
-            <id>avicus-repo</id>
-            <url>https://repo.avicus.net/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>avicus-repo</id>
-            <url>https://repo.avicus.net/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <repositories>
-        <!-- PaperSpigot -->
-        <repository>
-            <id>avicus-public</id>
-            <url>https://repo.avicus.net/content/groups/public/</url>
-        </repository>
-
         <!-- ProtocolLib! -->
         <repository>
             <id>dmulloy2-repo</id>
@@ -43,20 +25,26 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- PaperSpigot -->
+        <!-- Magnet (Server) -->
         <dependency>
-            <groupId>com.github</groupId>
-            <artifactId>paperspigot</artifactId>
-            <version>1.8.8</version>
-            <scope>provided</scope>
+          <groupId>net.avicus</groupId>
+          <artifactId>magnet</artifactId>
+          <version>1.8.8-R0.1-SNAPSHOT</version>
+          <scope>provided</scope>
         </dependency>
 
         <!-- ProtocolLib -->
         <dependency>
-            <groupId>com.comphenix.protocol</groupId>
-            <artifactId>ProtocolLib</artifactId>
-            <version>3.6.5</version>
-            <scope>provided</scope>
+          <groupId>com.comphenix.protocol</groupId>
+          <artifactId>ProtocolLib</artifactId>
+          <version>4.3.0</version>
+          <scope>provided</scope>
+          <exclusions>
+            <exclusion>
+              <groupId>com.comphenix.executors</groupId>
+              <artifactId>BukkitExecutors</artifactId>
+            </exclusion>
+          </exclusions>
         </dependency>
     </dependencies>
 
